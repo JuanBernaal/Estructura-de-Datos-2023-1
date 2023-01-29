@@ -64,3 +64,23 @@ def diferenciaListas(listaA, listaB):
 
 ################################################################## Punto 3B. ##################################################################
 
+def leerImprimir(lista1):
+    for i in range(len(lista1)): 
+        if lista1[i] == lista1[-1]:
+            print(lista1[i]) 
+        else:
+            print(lista1[i], end = ", ") 
+ 
+def main():
+    lista = []
+    for _ in range(int(input())): 
+        v1 = input().split()
+        v2 = input().split()
+        for j in range(1, len(v1)): 
+            if v1[j] not in v2:
+                lista.append(v1[j])  
+            else:
+                v2.remove(v1[j])  
+        leerImprimir(lista)
+        lista = [] 
+main() 
