@@ -2,7 +2,7 @@
 Juan David Bernal Maldonado
 Segundo semestre
 Estructuras de datos
-Solución a la tarea 1
+Solucion a la tarea 1 
 """
 
 ################################################################## Punto 1. ##################################################################
@@ -83,4 +83,56 @@ def main():
                 v2.remove(v1[j])  
         leerImprimir(lista)
         lista = [] 
-main() 
+#main()  
+
+################################################################## Punto 4. ##################################################################
+
+def esPrimo(num):
+    ans = True 
+    for i in range(2, num):
+        if num % i == 0:
+            ans = False 
+    return ans 
+
+def mostrarPrimos(numero):
+    lista = [] 
+    for i in range(2, numero):
+        if esPrimo(i) == True:
+            lista.append(i)
+    #leerImprimir        
+    print("Números primos entre 1 y %d:" % numero) 
+    for j in range(len(lista)):
+        if lista[j] != lista[-1]:
+            print("--> %d," % lista[j])   
+        else:
+            print("--> %d" % lista[j])
+    print() 
+    print("Números entre 1 y %d con suma de dígitos con valor primo:" % numero)
+       
+#mostrarPrimos(100) 
+
+################################################################## Punto 5. ##################################################################
+
+disp = {0 : [(0, 1), (5, 4), (7, 5)],
+1 : [(6, 4), (7, 7)],
+2 : [(0, 2), (1, 2), (4, 9), (6, 1)],
+4 : [(2, 8), (3, 1), (5, 7)],
+6 : [(0, 3), (5, 6), (7, 2)],
+7 : [(0, 4), (1, 4), (2, 7)],
+8 : [(1, 9), (3, 8), (5, 7), (7, 6)]} 
+
+lista1 = [(0, 0), (8, 3), (3, 5), (7, 2), (4, 3), (4,6)]
+
+def encontrarValor(lista, num): 
+    for i in range(len(lista)):
+        if lista[i][0] == num:
+            return lista[i][1] 
+         
+def sumarValoresMatriz(disp, lista):
+    ans = 0
+    for i in range(len(lista)):
+        clave = lista[i][0] 
+        if clave in disp:
+            numeroBuscar = encontrarValor(disp[clave], lista[i][1]) 
+            print(disp[clave][numeroBuscar][lista[i][1]])
+sumarValoresMatriz(disp, lista1) 
