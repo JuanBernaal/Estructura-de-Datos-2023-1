@@ -127,12 +127,15 @@ def encontrarValor(lista, num):
     for i in range(len(lista)):
         if lista[i][0] == num:
             return lista[i][1] 
-         
-def sumarValoresMatriz(disp, lista):
+
+def sumarValoresMat(disp, lista):
     ans = 0
-    for i in range(len(lista)):
-        clave = lista[i][0] 
-        if clave in disp:
-            numeroBuscar = encontrarValor(disp[clave], lista[i][1]) 
-            print(disp[clave][numeroBuscar][lista[i][1]])
-sumarValoresMatriz(disp, lista1) 
+    for i in lista:
+        if i[0] in disp:
+            lista1 = disp[i[0]] 
+            x = encontrarValor(lista1, i[1])
+            if x != None:
+                ans += x 
+    return ans 
+
+#print(sumarValoresMat(disp, lista1)) 
