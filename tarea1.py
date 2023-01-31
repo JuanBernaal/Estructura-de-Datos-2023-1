@@ -1,8 +1,7 @@
 """ 
-Juan David Bernal Maldonado
+Juan David Bernal Maldonado 8977771
 Segundo semestre
-Estructuras de datos
-Solucion a la tarea 1 
+Estructuras de datos, solucion a la tarea 1 
 """
 
 ################################################################## Punto 1. ##################################################################
@@ -94,8 +93,19 @@ def esPrimo(num):
             ans = False 
     return ans 
 
+def sumaDigitos(num):
+    ans = 0
+    x = str(num) 
+    if len(x) == 1:
+        return num 
+    else: 
+        for i in x:
+            ans += int(i)
+        return ans 
+
 def mostrarPrimos(numero):
     lista = [] 
+    lista2 = [] 
     for i in range(2, numero):
         if esPrimo(i) == True:
             lista.append(i)
@@ -106,10 +116,17 @@ def mostrarPrimos(numero):
             print("--> %d," % lista[j])   
         else:
             print("--> %d" % lista[j])
+        x = sumaDigitos(lista[j]) 
+        if esPrimo(x) == True:
+            lista2.append(lista[j])   
     print() 
     print("Números entre 1 y %d con suma de dígitos con valor primo:" % numero)
-       
-#mostrarPrimos(100) 
+    for k in lista2:
+        if k == lista2[-1]:
+            print(k) 
+        else:
+            print(k, end = ", ") 
+mostrarPrimos(100) 
 
 ################################################################## Punto 5. ##################################################################
 
