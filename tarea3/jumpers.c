@@ -6,7 +6,7 @@ int main(){
     int n, i, number, bef, aft, k, indi, finalArray, indica;
     while(scanf("%d",&n) != EOF){
         int flag = 0;
-        int array[n];
+        int array[3000];
         int finalArray[3000] = {0};
         int l = 1;
         for(i = 0; i < n; i++){
