@@ -7,17 +7,17 @@ int main(){
         scanf("%d", &gasStations);
         int fillTank[100001], emptyTank[100001];
 
-        for(i = 0; i < n; i++){
+        for(i = 0; i < gasStations; i++){
             scanf("%d", &fillTank[i]);
         }
 
-        for(i = 0; i < n; i++){
+        for(i = 0; i < gasStations; i++){
             scanf("%d", &emptyTank[i]);
         }
 
         tank = 0, minorStation = 0;
         
-        for(i = 0; i < n; i++){
+        for(i = 0; i < gasStations; i++){
             tank += fillTank[i] - emptyTank[i];
             if(tank < 0){
                 tank = 0;
