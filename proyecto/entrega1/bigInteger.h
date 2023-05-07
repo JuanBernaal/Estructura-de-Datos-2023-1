@@ -7,9 +7,6 @@
 
 using namespace std;
 
-int charToInt(char c);
-bool isEqual(vector<int> v, vector<int> v2);
-
 class BigInteger{
     private:
         vector<int> number;
