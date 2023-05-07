@@ -7,6 +7,9 @@
 
 using namespace std;
 
+int charToInt(char c);
+bool isEqual(vector<int> v, vector<int> v2);
+
 class BigInteger{
     private:
         vector<int> number;
@@ -16,9 +19,6 @@ class BigInteger{
         BigInteger(string num);
         
         void printBigInteger();
-
-        int charToInt(char c);
-        bool isEqual(vector<int> v, vector<int> v2);
 
         int len();
         int info(int pos); 

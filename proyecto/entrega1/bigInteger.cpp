@@ -4,6 +4,27 @@
 #include <vector>
 #include <algorithm>
 
+int charToInt(char c){
+    int ans = c - 48;
+    return ans;
+}
+
+bool isEqual(vector<int> v, vector<int> v2){
+    bool ans = false;
+    if(v.size() == v2.size()){
+        int i = 0;
+        while(v[i] == v2[i]){
+            i++;
+        }
+        if(i == v.size()){
+            ans = true;
+        }
+    }else{
+        ans = false;
+    }
+    return ans;
+}
+
 BigInteger::BigInteger(){                               /* Constructor predeterminado. */
 }
 
@@ -24,27 +45,6 @@ void BigInteger::printBigInteger(){                     /* Imprimir el numero. *
         cout << number[i];
     }
     printf("\n");
-}
-
-int BigInteger::charToInt(char c){
-    int ans = c - 48;
-    return ans;
-}
-
-bool BigInteger::isEqual(vector<int> v, vector<int> v2){
-    bool ans = false;
-    if(v.size() == v2.size()){
-        int i = 0;
-        while(v[i] == v2[i]){
-            i++;
-        }
-        if(i == v.size()){
-            ans = true;
-        }
-    }else{
-        ans = false;
-    }
-    return ans;
 }
 
 int BigInteger::len(){
