@@ -30,7 +30,6 @@ class BigInteger{
         bool operator< (BigInteger &num);
         bool operator<= (BigInteger &num);
 
-
         void add(BigInteger &num);
         void product(BigInteger &num);
         void substract(BigInteger &num);
