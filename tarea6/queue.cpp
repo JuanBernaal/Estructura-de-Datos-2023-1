@@ -24,14 +24,14 @@ int main(){
                 queue.pop_front();
             }else{
                 scanf("%d", &e);
-                if(!queue.empty()){
-                    bool flag = true;
-                    for(list<int>::iterator itr = queue.begin(); itr != queue.end() && flag == true; itr++){
-                        if(*itr == e){
-                            queue.push_front(*itr);
-                            queue.erase(itr);
-                            flag = false;
-                        }
+                bool flag = true;
+                for(list<int>::iterator itr = queue.begin(); itr != queue.end() && flag == true; itr++){
+                    if(*itr == e){
+                        ans.push_back(*itr);
+                        list<int>::iterator erase_itr = itr;
+                        ++itr;
+                        queue.erase(erase_itr);
+                        flag = false;
                     }
                 }
             }
