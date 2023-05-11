@@ -6,41 +6,49 @@
 using namespace std;
 
 int main(){
-    int p, c, cont = 1;
+    int p, c, num, caseNumber = 1;
+    list<int> queue, attended;
+    char input;
     scanf("%d %d", &p, &c);
     while(p != 0 && c != 0){
-        list<int> queue, ans;
-        char input;
-        int e;
-        for(int i = 1; i <= p; i++){
-            queue.push_back(i);
+        int limit = 1;
+        while(limit <= p && limit < 1001){
+            queue.push_back(limit);
+            limit++;
         }
         for(int i = 0; i < c; i++){
-            scanf(" %c", &input);
-            list<int>::iterator it = queue.begin();
+            cin >> input;
             if(input == 'N'){
-                ans.push_back(*it);
+                list<int>::iterator it = queue.begin();
+                attended.push_back(*it);
                 queue.push_back(*it);
-                queue.pop_front();
+                queue.erase(it);
             }else{
-                scanf("%d", &e);
+                int num;
                 bool flag = true;
-                for(list<int>::iterator itr = queue.begin(); itr != queue.end() && flag == true; itr++){
-                    if(*itr == e){
-                        ans.push_back(*itr);
-                        list<int>::iterator erase_itr = itr;
-                        ++itr;
-                        queue.erase(erase_itr);
-                        flag = false;
+                cin >> num;
+                if(num > 1000){
+                    queue.push_front(num);
+                }else{
+                    for(list<int>::iterator it = queue.begin(); it != queue.end() && flag; it++){
+                        if(*it == num){
+                            queue.push_front(*it);
+                            queue.erase(it);
+                            flag = false;
+                        }
                     }
                 }
             }
         }
-        printf("Case %d:\n", cont);
-        cont++;
-        for(list<int>::iterator iterador = ans.begin(); iterador != ans.end(); iterador++){
-            cout << *iterador << endl;
+        if(caseNumber < 11){
+            printf("Case %d:\n", caseNumber);
+            caseNumber++;
+            for(list<int>::iterator it = attended.begin(); it != attended.end(); it++){
+                cout << *it << endl;
+            }
         }
+        queue.clear();
+        attended.clear();
         scanf("%d %d", &p, &c);
     }
     return 0;
