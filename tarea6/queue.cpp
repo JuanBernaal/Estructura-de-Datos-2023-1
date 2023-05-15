@@ -1,9 +1,18 @@
+/* 
+    Autor: Juan David Bernal Maldonado. 
+    Codigo: 8977771
+
+    Complejidad computacional:
+    La complejidad general de este codigo es de O(n^2) porque se recorre una lista y
+    se elimina un elemento de ella.
+*/
 #include <iostream>
 #include <list>
 #include <string>
 #include <algorithm>
 
 using namespace std;
+typedef list<int>::iterator Iterator;
 
 int main(){
     int p, c, num, caseNumber = 1;
@@ -19,7 +28,7 @@ int main(){
         for(int i = 0; i < c; i++){
             cin >> input;
             if(input == 'N'){
-                list<int>::iterator it = queue.begin();
+                Iterator it = queue.begin();
                 attended.push_back(*it);
                 queue.push_back(*it);
                 queue.erase(it);
@@ -30,7 +39,7 @@ int main(){
                 if(num > 1000){
                     queue.push_front(num);
                 }else{
-                    for(list<int>::iterator it = queue.begin(); it != queue.end() && flag; it++){
+                    for(Iterator it = queue.begin(); it != queue.end() && flag; it++){
                         if(*it == num){
                             queue.push_front(*it);
                             queue.erase(it);
@@ -40,12 +49,10 @@ int main(){
                 }
             }
         }
-        if(caseNumber < 11){
-            printf("Case %d:\n", caseNumber);
-            caseNumber++;
-            for(list<int>::iterator it = attended.begin(); it != attended.end(); it++){
-                cout << *it << endl;
-            }
+        printf("Case %d:\n", caseNumber);
+        caseNumber++;
+        for(Iterator it = attended.begin(); it != attended.end(); it++){
+            cout << *it << endl;
         }
         queue.clear();
         attended.clear();
