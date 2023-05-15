@@ -1,3 +1,10 @@
+/* 
+    Juan David Bernal Maldonado
+    8977771
+
+    La complejidad de este codigo es O(1) porque el tiempo
+    de insercion de los datos es 0(1). 
+*/
 #include <list>
 #include <iostream>
 #include <string>
