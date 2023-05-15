@@ -1,3 +1,12 @@
+/* 
+    Autor: Juan David Bernal Maldonado. 
+    Codigo: 8977771
+
+    Complejidad computacional:
+    La complejidad de este codigo depende de la longitud las palabras y del tamaño del diccionario. 
+    En el peor de los casos si todas las palabras en el diccionario son de longitud n y hay m palabras
+    en el diccionario, la complejidad sera de O(n^2).
+*/
 #include <iostream>
 #include <map>
 #include <vector>
