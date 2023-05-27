@@ -36,7 +36,7 @@ void eliminarPosicionesPila(stack<int>& pil, list<int>& l){
 /* ======================================= Punto 2 ======================================= */
 
 /* 
-    La complejidad de esta funcion es O(n log n). 
+    La complejidad de esta funcion es O(n log n) por las funciones pop_heap y push_heap.
 */
 
 void ordenarConMonticulo(vector<int>& vec){
