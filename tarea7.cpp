@@ -145,7 +145,7 @@ vector<list<pair<int, int>>> crearMatrizDispersa(vector<vector<int>> mat){
 /*  
     La complejidad de esta operacion es O(n), en el primer ciclo n depende de la cantidad de datos
     que tenga la cola y el segundo ciclo se itera n veces en el peor caso si no se encuentra
-    que ans es verdadera
+    que ans es verdadera.
 */
 
 bool verificarRepetidosCola(queue<int> q){
@@ -169,7 +169,7 @@ bool verificarRepetidosCola(queue<int> q){
 
 /*  
     La complejidad de este codigo es O(n), donde n puede ser la cantidad de datos en la cola 
-    o el entero N que recibe la funcion
+    o el entero N que recibe la funcion.
 */ 
 
 stack<int> filtrarNParesCola(queue<int> col, int N){
@@ -177,7 +177,7 @@ stack<int> filtrarNParesCola(queue<int> col, int N){
     int cont = 0;
     while(!col.empty() && cont <= N){
         if(col.front() % 2 == 0){
-            if(cont <= N){
+            if(cont < N){
                 ans.push(col.front());
                 cont++;
             }
