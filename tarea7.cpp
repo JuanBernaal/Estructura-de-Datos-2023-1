@@ -77,7 +77,8 @@ bool verificarOrdenadoCola(queue<int> q){
 
 /* 
     La complejidad de esta operacion es O(n) donde n representa la longitud de la lista l, 
-    todo lo que esta anidado al ciclo while, se ejecutara n veces. 
+    todo lo que esta anidado al ciclo while, se ejecutara n veces. Pero el uso del sort
+    hace la complejidad sea O(n log n). 
 */
 
 int obtenerMenorCosto(list<int> l){
