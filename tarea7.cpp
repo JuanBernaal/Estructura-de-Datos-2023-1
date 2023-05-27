@@ -173,7 +173,6 @@ bool verificarRepetidosCola(queue<int> q){
 */ 
 
 stack<int> filtrarNParesCola(queue<int> col, int N){
-    list<int> tmp;
     stack<int> ans;
     int cont = 0;
     while(!col.empty() && cont <= N){
