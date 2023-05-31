@@ -202,23 +202,25 @@ BigInteger BigInteger::operator*(BigInteger &num){
     es modificado.
 */
 BigInteger BigInteger::operator/(BigInteger& num){
-    BigInteger zero("0");
-    if(*this == zero || *this < num){
-        return BigInteger("0");
-    }
-    BigInteger dividend = *this,  divisor = num, quotient("0"), remainder("0");
-    for(int i = dividend.number.size() - 1; i >= 0; --i){
-        BigInteger b1("10"), b2(to_string(dividend.number[i]));
-        remainder = remainder * b1 + b2;
-        int count = 0;
-        while(!(remainder < divisor)){
-            remainder = remainder - divisor;
-            ++count;
+    BigInteger zero("0"), ans;
+    if(*this == zero || *this < num)
+        ans = zero;
+    else{
+        BigInteger dividend = *this,  divisor = num, quotient("0"), remainder("0");
+        for(int i = dividend.number.size() - 1; i >= 0; --i){
+            BigInteger b1("10"), b2(to_string(dividend.number[i]));
+            remainder = remainder * b1 + b2;
+            int count = 0;
+            while(!(remainder < divisor)){
+                remainder = remainder - divisor;
+                ++count;
+            }
+            quotient.number.insert(quotient.number.begin(), count);
         }
-        quotient.number.insert(quotient.number.begin(), count);
+        quotient.removeLeadingZeros();
+        ans = quotient;
     }
-    quotient.removeLeadingZeros();
-    return quotient;
+    return ans;
 }
 
 /*  Sobrecarga operator%.
@@ -230,20 +232,22 @@ BigInteger BigInteger::operator/(BigInteger& num){
     las operaciones es modificado.
 */
 BigInteger BigInteger::operator%(BigInteger& num) {
-    BigInteger zero("0");
+    BigInteger zero("0"), ans;
     if(*this == zero || *this < num){
-        return *this;
-    }
-    BigInteger dividend = *this, divisor = num, remainder("0");
-    for(int i = dividend.number.size() - 1; i >= 0; --i){
-        BigInteger b1("10"), b2(to_string(dividend.number[i]));
-        remainder = remainder * b1 + b2;
-        while(!(remainder < divisor)){
-            remainder = remainder - divisor;
+        ans = *this;
+    }else{
+        BigInteger dividend = *this, divisor = num, remainder("0");
+        for(int i = dividend.number.size() - 1; i >= 0; --i){
+            BigInteger b1("10"), b2(to_string(dividend.number[i]));
+            remainder = remainder * b1 + b2;
+            while(!(remainder < divisor)){
+                remainder = remainder - divisor;
+            }
         }
+        remainder.removeLeadingZeros();
+        ans = remainder;
     }
-    remainder.removeLeadingZeros();
-    return remainder;
+    return ans;
 }
 
 /*  Sobrecarga operator==.
