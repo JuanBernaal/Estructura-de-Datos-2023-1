@@ -207,13 +207,13 @@ BigInteger BigInteger::operator/(BigInteger& num){
         ans = zero;
     else{
         BigInteger dividend = *this,  divisor = num, quotient("0"), remainder("0");
-        for(int i = dividend.number.size() - 1; i >= 0; --i){
+        for(int i = dividend.number.size() - 1; i >= 0; i--){
             BigInteger b1("10"), b2(to_string(dividend.number[i]));
             remainder = remainder * b1 + b2;
             int count = 0;
             while(!(remainder < divisor)){
                 remainder = remainder - divisor;
-                ++count;
+                count++;
             }
             quotient.number.insert(quotient.number.begin(), count);
         }
